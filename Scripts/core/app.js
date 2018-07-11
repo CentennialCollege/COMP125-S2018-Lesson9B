@@ -7,7 +7,9 @@
   let vec1;
   let vec2;
   let canvas;
-  let context;
+  let stage;
+  let graphics;
+  let line;
 
   /**
    * This function is used for Intialization
@@ -26,8 +28,19 @@
     vec2 = new objects.Vector(300, 400);
 
     canvas = document.getElementById("canvas");
+    stage = new createjs.Stage(canvas);
+    createjs.Ticker.framerate = 60; // 60 fps
+    createjs.Ticker.addEventListener("tick", GameLoop);
+
+    graphics = new createjs.Graphics();
+    line = new createjs.Shape(graphics);
 
     Main();
+  }
+
+  function GameLoop() {
+
+    stage.update();
   }
 
   /**
@@ -46,11 +59,15 @@
     console.log(`Distance: ${objects.Vector.distance(vec1, vec2)}`);
     console.log(`Vec1 + Vec2: ${objects.Vector.add(vec1, vec2)}`);
 
-    context = canvas.getContext("2d");
-    context.moveTo(vec1.x, vec1.y);
-    context.lineTo(vec2.x, vec2.y);
-    context.stroke();
-  
+    graphics.setStrokeStyle(2);
+    graphics.beginStroke("#000000");
+    graphics.moveTo(vec1.x, vec1.y);
+    graphics.lineTo(vec2.x, vec2.y);
+    
+    graphics.endStroke();
+
+    stage.addChild(line);
+
   }
 
   window.addEventListener("load", Start);
