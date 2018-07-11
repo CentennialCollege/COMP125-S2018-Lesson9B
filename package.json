@@ -7,11 +7,19 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "easeljs": "^1.0.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2"
   },
   "devDependencies": {
-    "@types/jquery": "^3.3.4"
+    "@types/easeljs": "^1.0.0",
+    "@types/jquery": "^3.3.4",
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/tweenjs": "^1.0.0"
   }
 }

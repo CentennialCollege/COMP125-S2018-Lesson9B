@@ -15,3 +15,8 @@ nav {
 #Result, #minRangeValue, #maxRangeValue {
   min-height: 40px
 }
+
+#canvas {
+  border: 1px solid black;
+  background-color: white;
+}

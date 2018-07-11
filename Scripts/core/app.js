@@ -6,6 +6,8 @@
   let firstH1;
   let vec1;
   let vec2;
+  let canvas;
+  let context;
 
   /**
    * This function is used for Intialization
@@ -20,8 +22,10 @@
     ButtonSection = document.getElementById("ButtonSection");
     firstH1 = document.getElementsByTagName("h1")[0];
 
-    vec1 = new objects.Vector(3, 5);
-    vec2 = new objects.Vector(5, 10);
+    vec1 = new objects.Vector(100, 200);
+    vec2 = new objects.Vector(300, 400);
+
+    canvas = document.getElementById("canvas");
 
     Main();
   }
@@ -41,6 +45,11 @@
 
     console.log(`Distance: ${objects.Vector.distance(vec1, vec2)}`);
     console.log(`Vec1 + Vec2: ${objects.Vector.add(vec1, vec2)}`);
+
+    context = canvas.getContext("2d");
+    context.moveTo(vec1.x, vec1.y);
+    context.lineTo(vec2.x, vec2.y);
+    context.stroke();
   
   }
 
